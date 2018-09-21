@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IdgApp</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="assets/uikit-2.27.5/css/uikit.min.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/uikit-2.27.5/js/uikit.min.js"></script>
+  <script src="assets/js/fastclick.min.js"></script>
+  <script>
+    var attachFastClick = Origami.fastclick;
+    attachFastClick(document.body);
+  </script>
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <link href="assets/css/hover-min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="styles.25515d1618dc1a361468.css"></head>
+
+<body>
+  <app-root></app-root>
+  <script>
+      var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+   
+       function preventDefault(e) {
+         e = e || window.event;
+         if (e.preventDefault)
+             e.preventDefault();
+         e.returnValue = false;  
+       }
+   
+       function preventDefaultForScrollKeys(e) {
+           if (keys[e.keyCode]) {
+               preventDefault(e);
+               return false;
+           }
+       }
+   
+       function disableScroll() {
+         if (window.addEventListener) // older FF
+             window.addEventListener('DOMMouseScroll', preventDefault, false);
+         window.onwheel = preventDefault; // modern standard
+         window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+         window.ontouchmove  = preventDefault; // mobile
+         document.onkeydown  = preventDefaultForScrollKeys;
+       }
+   
+       function enableScroll() {
+           if (window.removeEventListener)
+               window.removeEventListener('DOMMouseScroll', preventDefault, false);
+           window.onmousewheel = document.onmousewheel = null; 
+           window.onwheel = null; 
+           window.ontouchmove = null;  
+           document.onkeydown = null;  
+       }
+       disableScroll();
+     </script>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.2f4a59095805af02bd79.js"></script><script type="text/javascript" src="main.06d18ba05d63f1907332.js"></script></body>
+</html>
